@@ -14,7 +14,12 @@ func main() {
 	sm := doSimple()
 
 	readAndWriteDemo(sm)
-	str := toJSON(sm)
+	jsonDemo(sm)
+}
+
+func jsonDemo(pb proto.Message) {
+
+	str := toJSON(pb)
 	fmt.Println(str)
 
 	sm2 := &simplepb.SimpleMessage{}
