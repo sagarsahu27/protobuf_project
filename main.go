@@ -7,6 +7,7 @@ import (
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
+	complexpb "github.com/sagarsahu27/myCode/src/complex"
 	enumpb "github.com/sagarsahu27/myCode/src/enum_example"
 	simplepb "github.com/sagarsahu27/myCode/src/simple"
 )
@@ -18,6 +19,27 @@ func main() {
 	jsonDemo(sm)
 
 	enumDemo(sm)
+	complexDemo(sm)
+}
+
+func complexDemo(pb proto.Message) {
+	cb := complexpb.ComplexMessage{
+		OneDummy: &complexpb.DummyMessage{
+			Id:   1,
+			Name: "First Message",
+		},
+		MultipleDummy: []*complexpb.DummyMessage{
+			&complexpb.DummyMessage{
+				Id:   2,
+				Name: "second Message",
+			},
+			&complexpb.DummyMessage{
+				Id:   3,
+				Name: "third Message",
+			},
+		},
+	}
+	fmt.Println(cb)
 }
 
 func enumDemo(pb proto.Message) {
