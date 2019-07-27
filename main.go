@@ -7,6 +7,7 @@ import (
 
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
+	enumpb "github.com/sagarsahu27/myCode/src/enum_example"
 	simplepb "github.com/sagarsahu27/myCode/src/simple"
 )
 
@@ -15,6 +16,16 @@ func main() {
 
 	readAndWriteDemo(sm)
 	jsonDemo(sm)
+
+	enumDemo(sm)
+}
+
+func enumDemo(pb proto.Message) {
+	ep := enumpb.EnumMessage{
+		Id:           42,
+		DayOfTheWeek: enumpb.DayOfTheWeek_SATURDAY,
+	}
+	fmt.Println(ep)
 }
 
 func jsonDemo(pb proto.Message) {
